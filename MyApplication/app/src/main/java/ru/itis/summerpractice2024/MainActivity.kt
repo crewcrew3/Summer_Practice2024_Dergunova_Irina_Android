@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-        }
+        }*/
 
         viewBinding = ActivityMainBinding.inflate(layoutInflater) //инициализация байдинга
         setContentView(viewBinding?.root) //корень всего бандинга
@@ -40,16 +40,18 @@ class MainActivity : AppCompatActivity() {
             beginButton.setOnClickListener {
                 //Toast.makeText(this@MainActivity, "Current number: ${textInput.text}", Toast.LENGTH_SHORT).show()
                 if (textInput.text.toString().isNotEmpty() && TextUtils.isDigitsOnly(textInput.text.toString())) {
-                    fighting(createMonsterArmy(textInput.text.toString().toInt()))
+                    var army = createMonsterArmy(textInput.text.toString().toInt())
+                    viewInfoAboutArmy(army)
+                    fighting(army)
                 }
 
             }
         }
     }
 
-    fun fighting(army: ArrayList<Monster>): Monster {
+    fun fighting(army: ArrayList<Monster>): Monster { //организация битвы (в контексте машин - гонок)
         if (army.size == 1) {
-            println("WINNER IS ${army.get(0)}!!!")
+            println("WINNER IS ${army.get(0).name}!!!")
             return army.get(0)
         }
         val random = Random
@@ -76,34 +78,41 @@ class MainActivity : AppCompatActivity() {
         return fighting(winners)
     }
 
-    fun createMonsterArmy(number: Int): ArrayList<Monster> {
+    fun createMonsterArmy(number: Int): ArrayList<Monster> { //создание коллекции из монстров со случайными параметрами
         var army = ArrayList<Monster>()
-        var names = ArrayList<String>()
+        var names = ArrayList<String>() //имя монстра - индекс в исходной коллекции
 
         for (i in 0..number - 1) {
             names.add(i.toString())
         }
-        val random = Random
 
         for (i in 0..number - 1) {
-            val randomNamePosition = random.nextInt(0, names.size)
-            val randomAge = random.nextInt(1, 10000)
-            army.add(createRandomMonster(names.get(randomNamePosition), randomAge))
-            names.removeAt(randomNamePosition)
+            army.add(createRandomMonster(names))
         }
 
         return army
     }
 
-    fun createRandomMonster(randomName: String, randomAge: Int): Monster {
+    fun createRandomMonster(names: ArrayList<String>): Monster { //создание монстра со случайными параметрами
+        val random = Random
+        val randomNamePosition = random.nextInt(0, names.size)
+        val randomAge = random.nextInt(1, 10000)
+
         val newMonster = Monster(
-            name = randomName,
+            name = names.get(randomNamePosition),
             age = randomAge,
         )
+        names.removeAt(randomNamePosition) //имя уже занято, удаляем из списка
         return newMonster
     }
 
-    fun compareATKPower(monster1: Monster, monster2: Monster): Monster {
+    fun viewInfoAboutArmy(army: ArrayList<Monster>) {
+        for (i in 0..army.size - 1) {
+            println(army.get(i).monsterInfo())
+        }
+    }
+
+    fun compareATKPower(monster1: Monster, monster2: Monster): Monster { //проводим сравнение просто по силе атаки
         if (monster1.attackPower > monster2.attackPower) {
             return monster1
         }
@@ -126,9 +135,8 @@ open class Monster(
         return "$name attacked you!"
     }
 
-    fun monsterInfo(): String = "Name: $name; Age: $age; HP: $hp; ATK: $attackPower"
+    fun monsterInfo(): String = "Name: $name, Age: $age, HP: $hp, ATK: $attackPower" //метод чтобы посмотреть информацию о монстре
 
-    override fun toString(): String = name
 }
 
 class Dragon(
@@ -142,7 +150,7 @@ class Dragon(
     age = age,
     hp = hp,
     attackPower = attackPower,
-), FireBreathing { //Ctrl+O чтобы реализовать методы интерфейса
+), FireBreathing {
 
     override fun breath(): String = "Fire!!!"
 }
@@ -152,14 +160,14 @@ class FireSpirit(
     age: Int,
     override var hp: Int  = (500 * (age * 0.5)).toInt(),
     override var attackPower: Int = (5000 * (age * 0.3)).toInt(),
-    var fireBreathAttackPower: Int,
+    var fireBreathAttackPower: Int = (attackPower * 1.2).toInt(),
     val visible: Boolean,
 ) : Monster(
     name = name,
     age = age,
     hp = hp,
     attackPower = attackPower,
-), FireBreathing { //Ctrl+O чтобы реализовать методы интерфейса
+), FireBreathing {
 
     override fun breath(): String = "Fireeeeee!!!"
 
