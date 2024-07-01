@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Fight</string>
+    <string name="header_battle">BATTLE!</string>
+    <string name="button_text_begin">Begin</string>
+    <string name="text_enter">Enter the number of monsters</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Битва</string>
+    <string name="header_battle">БИТВА!</string>
+    <string name="button_text_begin">Начать</string>
+    <string name="text_enter">Введите количество монстров</string>
+</resources>
