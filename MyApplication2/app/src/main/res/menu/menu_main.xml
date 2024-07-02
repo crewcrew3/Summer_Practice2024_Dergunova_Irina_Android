@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_home_24"
+        android:title="@string/main_screen" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person_24"
+        android:title="@string/profile_screen" />
+
+    <item
+        android:id="@+id/favoriteFragment"
+        android:icon="@drawable/ic_favorite_24"
+        android:title="@string/favorite_screen" />
+
+    <item
+        android:id="@+id/friendsFragment"
+        android:icon="@drawable/ic_people_24"
+        android:title="@string/friends_screen" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings_24"
+        android:title="@string/settings_screen" />
+
+</menu>
