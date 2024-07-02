@@ -19,6 +19,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etMessage"
+            android:fontFamily="@font/font_playwrite_ng_modern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -38,8 +39,9 @@
 
     <Button
         android:id="@+id/send_button"
-        android:layout_width="128dp"
-        android:layout_height="64dp"
+        style="@style/AppText"
+        android:layout_width="139dp"
+        android:layout_height="58dp"
         android:gravity="center"
         android:text="@string/send_button"
         android:textSize="20sp"

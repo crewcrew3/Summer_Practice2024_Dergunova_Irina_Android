@@ -13,7 +13,7 @@ class CoolPictureFragment : Fragment(R.layout.fragment_cool_picture) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCoolPictureBinding.bind(view)
 
-        val message = arguments?.getString(ARG_MESSAGE) ?: "To send a text fill in the field"
+        val message = arguments?.getString(ARG_MESSAGE)
 
         binding?.apply {
             tvMessage.text = "$message"

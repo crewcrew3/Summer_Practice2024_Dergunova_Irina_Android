@@ -13,7 +13,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMainBinding.bind(view)
 
-        val email = arguments?.getString(ARG_EMAIL) ?: "cutie"
+        val email = arguments?.getString(ARG_EMAIL)
 
         binding?.apply {
             tvAccountName.text = "Welcome $email!"

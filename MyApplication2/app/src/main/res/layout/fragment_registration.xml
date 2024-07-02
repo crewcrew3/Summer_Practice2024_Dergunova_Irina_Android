@@ -20,6 +20,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
+            android:fontFamily="@font/font_playwrite_ng_modern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -40,6 +41,7 @@
 
     <Button
         android:id="@+id/registration_button"
+        style="@style/AppText"
         android:layout_width="160dp"
         android:layout_height="57dp"
         android:gravity="center"
