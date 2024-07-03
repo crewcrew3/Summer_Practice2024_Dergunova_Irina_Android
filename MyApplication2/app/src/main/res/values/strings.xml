@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NetWork</string>
+    <string name="app_name">OhMy</string>
     <string name="registration_button">Sing up</string>
     <string name="send_button">Send</string>
     <string name="registration_screen">Registration</string>
@@ -7,5 +7,5 @@
     <string name="profile_screen">Profile</string>
     <string name="favorite_screen">Favorite</string>
     <string name="settings_screen">Settings</string>
-    <string name="friends_screen">Friends</string>
+    <string name="anime_catalog_screen">Anime Catalog</string>
 </resources>

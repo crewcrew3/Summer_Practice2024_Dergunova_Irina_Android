@@ -17,9 +17,9 @@
         android:title="@string/favorite_screen" />
 
     <item
-        android:id="@+id/friendsFragment"
-        android:icon="@drawable/ic_people_24"
-        android:title="@string/friends_screen" />
+        android:id="@+id/animeCatalogFragment"
+        android:icon="@drawable/ic_view_list_24"
+        android:title="@string/anime_catalog_screen" />
 
     <item
         android:id="@+id/settingsFragment"

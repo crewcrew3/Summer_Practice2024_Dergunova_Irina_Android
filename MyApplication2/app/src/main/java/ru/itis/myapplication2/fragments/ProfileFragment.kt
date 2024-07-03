@@ -1,17 +1,19 @@
-package ru.itis.myapplication2
+package ru.itis.myapplication2.fragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import ru.itis.myapplication2.databinding.FragmentSettingsBinding
+import ru.itis.myapplication2.R
+import ru.itis.myapplication2.databinding.FragmentProfileBinding
 
-class SettingsFragment : Fragment(R.layout.fragment_settings) {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
-    private var binding: FragmentSettingsBinding? = null
+    private var binding: FragmentProfileBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentSettingsBinding.bind(view)
+        binding = FragmentProfileBinding.bind(view)
+
     }
 
     override fun onDestroyView() {

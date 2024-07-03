@@ -6,7 +6,7 @@
     app:startDestination="@id/registrationFragment">
     <fragment
         android:id="@+id/registrationFragment"
-        android:name="ru.itis.myapplication2.RegistrationFragment"
+        android:name="ru.itis.myapplication2.fragments.RegistrationFragment"
         android:label="RegistrationFragment" >
         <action
             android:id="@+id/action_registrationFragment_to_mainFragment"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.itis.myapplication2.MainFragment"
+        android:name="ru.itis.myapplication2.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="ru.itis.myapplication2.ProfileFragment"
+        android:name="ru.itis.myapplication2.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -34,8 +34,8 @@
             app:destination="@id/favoriteFragment"
             app:enterAnim="@anim/nav_default_enter_anim" />
         <action
-            android:id="@+id/action_profileFragment_to_friendsFragment"
-            app:destination="@id/friendsFragment"
+            android:id="@+id/action_profileFragment_to_animeCatalogFragment"
+            app:destination="@id/animeCatalogFragment"
             app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="ru.itis.myapplication2.FavoriteFragment"
+        android:name="ru.itis.myapplication2.fragments.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
@@ -54,18 +54,22 @@
             app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
-        android:id="@+id/friendsFragment"
-        android:name="ru.itis.myapplication2.FriendsFragment"
-        android:label="fragment_friends"
-        tools:layout="@layout/fragment_friends" />
+        android:id="@+id/animeCatalogFragment"
+        android:name="ru.itis.myapplication2.fragments.AnimeCatalogFragment"
+        android:label="fragment_anime_catalog"
+        tools:layout="@layout/fragment_anime_catalog" >
+        <action
+            android:id="@+id/action_animeCatalogFragment_to_animeDetailsFragment"
+            app:destination="@id/animeDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="ru.itis.myapplication2.SettingsFragment"
+        android:name="ru.itis.myapplication2.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/coolPictureFragment"
-        android:name="ru.itis.myapplication2.CoolPictureFragment"
+        android:name="ru.itis.myapplication2.fragments.CoolPictureFragment"
         android:label="fragment_cool_picture"
         tools:layout="@layout/fragment_cool_picture" >
         <action
@@ -73,5 +77,13 @@
             app:destination="@id/favoriteFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:popEnterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/animeDetailsFragment"
+        android:name="ru.itis.myapplication2.fragments.AnimeDetailsFragment"
+        android:label="AnimeDetailsFragment" >
+        <action
+            android:id="@+id/action_animeDetailsFragment_to_animeCatalogFragment"
+            app:destination="@id/animeCatalogFragment" />
     </fragment>
 </navigation>
